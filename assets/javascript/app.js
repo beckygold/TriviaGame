@@ -1,3 +1,15 @@
-var audio = new Audio(" ");
+var timer = 60
+setInterval(function() {
+    timer--
+    $("#timer-display").text(timer);
+    console.log(timer)
+}, 1000);
 
-setTimeout(timeUp, 15000);
+// function countDown = {
+//     timer--
+//     $("#timer-display").text(timer);
+//     console.log(timer)
+// }
+
+
+// $("#timer-display").text(timer);
