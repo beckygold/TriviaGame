@@ -1,15 +1,28 @@
-var timer = 60
-setInterval(function() {
-    timer--
-    $("#timer-display").text(timer);
-    console.log(timer)
-}, 1000);
+var time = 60
+var intervalId
 
-// function countDown = {
-//     timer--
-//     $("#timer-display").text(timer);
-//     console.log(timer)
-// }
+// setInterval(function() {
+//     time--
+//     $("#timer-display").text("Time: " + time);
+//     console.log(time)
+// }, 1000);
 
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+};
 
-// $("#timer-display").text(timer);
+function decrement() {
+    time--
+    $("#timer-display").text("Time: " + time);
+    console.log(time)
+    if (time === 0) {
+        stop();
+    }
+}
+
+function stop () {
+    clearInterval(intervalId);
+}
+
+run();
