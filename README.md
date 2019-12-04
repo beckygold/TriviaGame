@@ -14,6 +14,8 @@ A trivia game using where players must answer 10 questions in 60 seconds. This g
 * Bootstrap
 
 ## Usage
+Navigate to the game by clicking [here](https://beckygold.github.io/TriviaGame/).
+
 Click on the correct answer for each question.
 
 ## Future Developments
