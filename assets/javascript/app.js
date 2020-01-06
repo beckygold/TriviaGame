@@ -1,28 +1,34 @@
+// --- Timer ---
 var time = 60
 var intervalId
+var questionIndex = 0;
 
-// setInterval(function() {
-//     time--
-//     $("#timer-display").text("Time: " + time);
-//     console.log(time)
-// }, 1000);
-
-function run() {
+function startTimer() {
     clearInterval(intervalId);
-    intervalId = setInterval(decrement, 1000);
+    intervalId = setInterval(decrementTimer, 1000);
 };
 
-function decrement() {
+function decrementTimer() {
     time--
     $("#timer-display").text("Time: " + time);
     console.log(time)
     if (time === 0) {
-        stop();
+        stopTimer();
     }
 }
 
-function stop () {
+function stopTimer() {
     clearInterval(intervalId);
 }
 
-run();
+function loadQuestion() {
+
+}
+
+startTimer();
+
+
+// Submit on-click event that evaluates answer and tallys the player's score
+submit.onclick = function () {
+
+}
