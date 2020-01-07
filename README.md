@@ -4,7 +4,7 @@
 ![GitHub](https://img.shields.io/github/license/beckygold/TriviaGame)
 
 ## Description
-A trivia game using where players must answer 10 questions in 60 seconds. This game utilizes JavaScript timers to keep track of time and jQuery to dynamically update HTML.
+A trivia game using where players must answer 10 questions in 60 seconds. This game utilizes JavaScript timers to keep track of time and jQuery to dynamically update HTML. Questions were pulled from the Open Trivia Database.
 
 ## Technologies
 * HTML
@@ -12,15 +12,17 @@ A trivia game using where players must answer 10 questions in 60 seconds. This g
 * JavaScript
 * jQuery
 * Bootstrap
+* [Open Trivia Database](https://opentdb.com/)
 
 ## Usage
-Navigate to the game by clicking [here](https://beckygold.github.io/TriviaGame/).
+Navigate to the game by clicking [here](https://rebeccagoldstein.github.io/TriviaGame/).
 
 Click on the correct answer for each question.
 
 ## Future Developments
 * Polish front-end.
 * Complete game functionality.
+* Utilize Open Trivia Database API.
 
 ## License
 MIT License
