@@ -4,6 +4,7 @@ var intervalId
 var questionIndex = 0;
 var choices = [];
 var answer = "";
+var score = 0;
 
 function startTimer() {
     clearInterval(intervalId);
@@ -49,8 +50,6 @@ function loadQuestion() {
 
     // Send answer to global variable
     answer = questions[questionIndex].correct_answer;
-
-    console.log(choices)
 }
 
 function renderChoices() {
@@ -62,7 +61,7 @@ function renderChoices() {
 
         $div.append($input);
         $div.append($label);
-        $("#answers").append($div)
+        $("#answers").prepend($div)
     });
 }
 
@@ -79,6 +78,10 @@ renderChoices();
 
 
 // Submit on-click event that evaluates answer and tallys the player's score
-submit.onclick = function () {
-
-}
+$("#submit").click(function () {
+    let playerChoice = $('#answers input:radio:checked').val();
+    console.log(playerChoice);
+    if (playerChoice === answer) {
+        score++
+    }
+});
