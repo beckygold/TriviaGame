@@ -72,9 +72,13 @@ function shuffleArray(array) {
     }
 }
 
-startTimer();
-loadQuestion();
-renderChoices();
+function startGame() {
+    loadQuestion();
+    renderChoices();
+    startTimer();
+}
+
+startGame();
 
 
 // Submit on-click event that evaluates answer and tallys the player's score
