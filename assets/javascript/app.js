@@ -25,7 +25,7 @@ function stopTimer() {
 
 function loadQuestion() {
     // Send question text to HTML
-    $("#question").text("Question: " + questions[questionIndex].question);
+    $("#question-display").text("Question: " + questions[questionIndex].question);
 
     // Create an array of all possible answers
     let unshuffledChoices = [];
@@ -61,7 +61,7 @@ function renderChoices() {
 
         $div.append($input);
         $div.append($label);
-        $("#answers").prepend($div)
+        $("#answers-display").prepend($div)
     });
 }
 
@@ -78,8 +78,8 @@ renderChoices();
 
 
 // Submit on-click event that evaluates answer and tallys the player's score
-$("#submit").click(function () {
-    let playerChoice = $('#answers input:radio:checked').val();
+$("#submit-button").click(function () {
+    let playerChoice = $('#answers-display input:radio:checked').val();
     console.log(playerChoice);
     if (playerChoice === answer) {
         score++
