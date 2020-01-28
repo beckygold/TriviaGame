@@ -16,6 +16,7 @@ function decrementTimer() {
     $("#timer-display").text("Time: " + time);
     if (time === 0) {
         stopTimer();
+        $("#action-display").text("Time's up!");
     }
 }
 
@@ -95,9 +96,10 @@ $("#submit-button").click(function () {
     if (playerChoice === answer) {
         score++
         questionIndex++
-        // emptyChoices();
+        $("#action-display").text("Correct!");
         loadQuestion();
     } else {
         questionIndex++
+        $("#action-display").text("Oops! Wrong answer.");
     }
 });
