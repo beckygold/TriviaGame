@@ -59,7 +59,7 @@ function loadQuestion() {
 function renderChoices() {
     choices.forEach(function (choice, i) {
         let $div = $("<div>").attr({ "class": "form-check", "id": "form" + i });
-        let $input = $("<input>").attr({ "class": "form-check-input", "type": "radio", "id": "answer" + i, "value": choice });
+        let $input = $("<input>").attr({ "class": "form-check-input", "type": "radio", "name": "choiceRadios", "id": "answer" + i, "value": choice });
         let $label = $("<label>").attr({ "class": "form-check-label", "for": "answer" + i })
         $label.text(choice);
 
