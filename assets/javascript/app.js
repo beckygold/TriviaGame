@@ -24,6 +24,8 @@ function stopTimer() {
 }
 
 function loadQuestion() {
+    // Empty any previous rendered choices
+    emptyChoices();
     // Send question text to HTML
     $("#question-display").text("Question: " + questions[questionIndex].question);
 
@@ -50,6 +52,7 @@ function loadQuestion() {
 
     // Send answer to global variable
     answer = questions[questionIndex].correct_answer;
+    renderChoices();
 }
 
 function renderChoices() {
@@ -65,6 +68,11 @@ function renderChoices() {
     });
 }
 
+function emptyChoices(){
+    $("#answers-display").empty();
+    choices = [];
+}
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -74,7 +82,6 @@ function shuffleArray(array) {
 
 function startGame() {
     loadQuestion();
-    renderChoices();
     startTimer();
 }
 
@@ -87,5 +94,10 @@ $("#submit-button").click(function () {
     console.log(playerChoice);
     if (playerChoice === answer) {
         score++
+        questionIndex++
+        // emptyChoices();
+        loadQuestion();
+    } else {
+        questionIndex++
     }
 });
