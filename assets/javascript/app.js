@@ -1,8 +1,9 @@
 // Target HTML elements
-$timer = $("#timer-display");
-$question = $("#question-display");
-$answers = $("#answers-display");
-$action = $("#action-display");
+$timerDisplay = $("#timer-display");
+$questionDisplay = $("#question-display");
+$answersDisplay = $("#answers-display");
+$actionDisplay = $("#action-display");
+$submitBtn = $("#submit-button");
 
 // Global variables
 var time = 60
@@ -19,10 +20,10 @@ function startTimer() {
 
 function decrementTimer() {
     time--
-    $timer.text("Time: " + time);
+    $timerDisplay.text("Time: " + time);
     if (time === 0) {
         stopTimer();
-        $action.text("Time's up!");
+        $actionDisplay.text("Time's up!");
     }
 }
 
@@ -34,7 +35,7 @@ function loadQuestion() {
     // Empty any previous rendered choices
     emptyChoices();
     // Send question text to HTML
-    $question.text("Question: " + questions[questionIndex].question);
+    $questionDisplay.text("Question: " + questions[questionIndex].question);
 
     // Create an array of all possible answers
     let unshuffledChoices = [];
@@ -71,12 +72,12 @@ function renderChoices() {
 
         $div.append($input);
         $div.append($label);
-        $answers.prepend($div)
+        $answersDisplay.prepend($div)
     });
 }
 
 function emptyChoices(){
-    $answers.empty();
+    $answersDisplay.empty();
     choices = [];
 }
 
@@ -96,16 +97,16 @@ startGame();
 
 
 // Submit on-click event that evaluates answer and tallys the player's score
-$("#submit-button").click(function () {
+$submitBtn.click(function () {
     let playerChoice = $('#answers-display input:radio:checked').val();
     console.log(playerChoice);
     if (playerChoice === answer) {
         score++
         questionIndex++
-        $action.text("Correct!");
+        $actionDisplay.text("Correct!");
         loadQuestion();
     } else {
         questionIndex++
-        $action.text("Oops! Wrong answer.");
+        $actionDisplay.text("Oops! Wrong answer.");
     }
 });
