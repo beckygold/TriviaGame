@@ -24,6 +24,7 @@ function decrementTimer() {
     if (time === 0) {
         stopTimer();
         $actionDisplay.text("Time's up!");
+        reanimateAction();
     }
 }
 
@@ -88,7 +89,14 @@ function shuffleArray(array) {
     }
 }
 
+function reanimateAction() {
+    $actionDisplay.removeClass("stretchAnimate");
+    $actionDisplay.width();
+    $actionDisplay.addClass("stretchAnimate");
+}
+
 function startGame() {
+    $actionDisplay.addClass("stretchAnimate");
     loadQuestion();
     startTimer();
 }
@@ -104,9 +112,11 @@ $submitBtn.click(function () {
         score++
         questionIndex++
         $actionDisplay.text("Correct!");
+        reanimateAction();
         loadQuestion();
     } else {
         questionIndex++
         $actionDisplay.text("Oops! Wrong answer.");
+        reanimateAction();
     }
 });

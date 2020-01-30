@@ -1,3 +1,20 @@
 #submit-button {
     float: right;
 }
+
+@keyframes stretch {
+    50% {
+        letter-spacing: 1px;
+    }
+}
+
+#action-display {
+    letter-spacing: normal;
+    font-weight: bold;
+    color: black;
+}
+
+.stretchAnimate {
+    animation-name: stretch;
+    animation-duration: 1s;
+}
