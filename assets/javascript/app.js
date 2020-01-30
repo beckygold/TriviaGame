@@ -1,4 +1,4 @@
-// Target HTML elements
+// Target HTML elements with jQuery
 $timerDisplay = $("#timer-display");
 $questionDisplay = $("#question-display");
 $answersDisplay = $("#answers-display");
@@ -20,6 +20,7 @@ function startTimer() {
 
 function decrementTimer() {
     time--
+    // Update time dynamically on page
     $timerDisplay.text("Time: " + time);
     if (time === 0) {
         stopTimer();
@@ -65,14 +66,17 @@ function loadQuestion() {
 }
 
 function renderChoices() {
+    // Create a radio for each choice
     choices.forEach(function (choice, i) {
         let $div = $("<div>").attr({ "class": "form-check", "id": "form" + i });
         let $input = $("<input>").attr({ "class": "form-check-input", "type": "radio", "name": "choiceRadios", "id": "answer" + i, "value": choice });
         let $label = $("<label>").attr({ "class": "form-check-label", "for": "answer" + i })
         $label.text(choice);
 
+        // Append the input and label to the parent div
         $div.append($input);
         $div.append($label);
+        // Send the new radio to the page
         $answersDisplay.prepend($div)
     });
 }
@@ -90,6 +94,7 @@ function shuffleArray(array) {
 }
 
 function reanimateAction() {
+    // This function uses .width() to trigger a DOM reflow so that our CSS animation can run again
     $actionDisplay.removeClass("stretchAnimate");
     $actionDisplay.width();
     $actionDisplay.addClass("stretchAnimate");
@@ -108,6 +113,7 @@ startGame();
 $submitBtn.click(function () {
     let playerChoice = $('#answers-display input:radio:checked').val();
     console.log(playerChoice);
+    // If the player
     if (playerChoice === answer) {
         score++
         questionIndex++
