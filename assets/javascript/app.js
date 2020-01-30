@@ -1,3 +1,9 @@
+// Target HTML elements
+$timer = $("#timer-display");
+$question = $("#question-display");
+$answers = $("#answers-display");
+$action = $("#action-display");
+
 // Global variables
 var time = 60
 var intervalId
@@ -13,10 +19,10 @@ function startTimer() {
 
 function decrementTimer() {
     time--
-    $("#timer-display").text("Time: " + time);
+    $timer.text("Time: " + time);
     if (time === 0) {
         stopTimer();
-        $("#action-display").text("Time's up!");
+        $action.text("Time's up!");
     }
 }
 
@@ -28,7 +34,7 @@ function loadQuestion() {
     // Empty any previous rendered choices
     emptyChoices();
     // Send question text to HTML
-    $("#question-display").text("Question: " + questions[questionIndex].question);
+    $question.text("Question: " + questions[questionIndex].question);
 
     // Create an array of all possible answers
     let unshuffledChoices = [];
@@ -65,12 +71,12 @@ function renderChoices() {
 
         $div.append($input);
         $div.append($label);
-        $("#answers-display").prepend($div)
+        $answers.prepend($div)
     });
 }
 
 function emptyChoices(){
-    $("#answers-display").empty();
+    $answers.empty();
     choices = [];
 }
 
@@ -96,10 +102,10 @@ $("#submit-button").click(function () {
     if (playerChoice === answer) {
         score++
         questionIndex++
-        $("#action-display").text("Correct!");
+        $action.text("Correct!");
         loadQuestion();
     } else {
         questionIndex++
-        $("#action-display").text("Oops! Wrong answer.");
+        $action.text("Oops! Wrong answer.");
     }
 });
