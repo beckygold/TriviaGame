@@ -119,17 +119,23 @@ startGame();
 $submitBtn.click(function () {
     let playerChoice = $('#answers-display input:radio:checked').val();
     console.log(playerChoice);
-    // If the player
+    // If the player is correct, give them a point and move to the next question
     if (playerChoice === answer) {
         scorePoint();
         questionIndex++
         $actionDisplay.text("Correct!");
         reanimateAction();
         loadQuestion();
-    } else {
+    } 
+    // otherwise, just move on to the next question
+    else {
         questionIndex++
         $actionDisplay.text("Oops! Wrong answer.");
         reanimateAction();
         loadQuestion();
+    }
+    // If the player hits submit on the last question,
+    if (questionIndex === 9) {
+        // send them to the end of the quiz
     }
 });
