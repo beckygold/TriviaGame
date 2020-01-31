@@ -2,6 +2,15 @@
     float: right;
 }
 
+#start-button {
+    float: right;
+}
+
+.hideDiv {
+    display: none;
+}
+
+/* ANIMATIONS */
 @keyframes stretch {
     50% {
         letter-spacing: 1px;

@@ -4,7 +4,10 @@ $questionDisplay = $("#question-display");
 $answersDisplay = $("#answers-display");
 $actionDisplay = $("#action-display");
 $scoreDisplay = $("#score-display");
+$startDisplay = $("#start-display");
+$gameDisplay = $("#game-display");
 $submitBtn = $("#submit-button");
+$startBtn = $("#start-button");
 
 // Global variables
 var time = 60
@@ -112,7 +115,11 @@ function startGame() {
     startTimer();
 }
 
-startGame();
+$startBtn.click(function() {
+    $startDisplay.addClass("hideDiv");
+    $gameDisplay.removeClass("hideDiv");
+    startGame();
+})
 
 
 // Submit on-click event that evaluates answer and tallys the player's score

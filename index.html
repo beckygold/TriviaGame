@@ -24,38 +24,56 @@
             </div>
         </div>
 
-        <!-- Timer Display -->
-        <div class="row text-center">
-            <div class="col-md-6">
-                <p id="timer-display">Time:</p>
-            </div>
-
-            <!-- Score Display -->
-            <div class="col-md-6">
-                <p id="score-display">Score:</p>
-            </div>
-        </div>
-
-        <!-- Action display -->
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <p id="action-display">Begin!</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Question Display -->
-            <div class="col-md-12 text-center">
-                <p id="question-display">Question</p>
-            </div>
-
-            <!-- Answers Display -->
-            <div class="col-md-4 mx-auto">
-                <div id="answers-display">
-
+        <!-- Start Display -->
+        <div id="start-display">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h4>How to Play</h4>
+                    <p id="instructions-display">
+                        10 questions | 60 seconds
+                        <br>
+                        Earn a point for each correct answer!
+                    </p>
+                    <button id="start-button" type="button" class="btn btn-primary btn-sm">Start!</button>
                 </div>
-                <!-- Submit Button -->
-                <button id="submit-button" type="button" class="btn btn-primary btn-sm">Submit</button>
+            </div>
+        </div>
+
+        <!-- Game Display -->
+        <div id="game-display" class="hideDiv">
+            <!-- Timer Display -->
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <p id="timer-display">Time:</p>
+                </div>
+
+                <!-- Score Display -->
+                <div class="col-md-6">
+                    <p id="score-display">Score:</p>
+                </div>
+            </div>
+
+            <!-- Action display -->
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <p id="action-display">Begin!</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Question Display -->
+                <div class="col-md-12 text-center">
+                    <p id="question-display">Question</p>
+                </div>
+
+                <!-- Answers Display -->
+                <div class="col-md-4 mx-auto">
+                    <div id="answers-display">
+
+                    </div>
+                    <!-- Submit Button -->
+                    <button id="submit-button" type="button" class="btn btn-primary btn-sm">Submit</button>
+                </div>
             </div>
         </div>
 
