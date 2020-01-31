@@ -32,6 +32,7 @@ function decrementTimer() {
         stopTimer();
         $actionDisplay.text("Time's up!");
         reanimateAction();
+        finalScore();
     }
 }
 
@@ -87,7 +88,7 @@ function renderChoices() {
     });
 }
 
-function emptyChoices(){
+function emptyChoices() {
     $answersDisplay.empty();
     choices = [];
 }
@@ -118,7 +119,13 @@ function startGame() {
     startTimer();
 }
 
-$startBtn.click(function() {
+function finalScore() {
+    $gameDisplay.addClass("hideDiv");
+    $finalScoreDisplay.removeClass("hideDiv");
+    $playerScore.text(score);
+}
+
+$startBtn.click(function () {
     $startDisplay.addClass("hideDiv");
     $gameDisplay.removeClass("hideDiv");
     startGame();
@@ -136,7 +143,7 @@ $submitBtn.click(function () {
         $actionDisplay.text("Correct!");
         reanimateAction();
         loadQuestion();
-    } 
+    }
     // otherwise, just move on to the next question
     else {
         questionIndex++
@@ -147,8 +154,6 @@ $submitBtn.click(function () {
     // If the player hits submit on the last question,
     if (questionIndex === 9) {
         // send them to the end of the quiz
-        $gameDisplay.addClass("hideDiv");
-        $finalScoreDisplay.removeClass("hideDiv");
-        $playerScore.text(score);
+        finalScore();
     }
 });
