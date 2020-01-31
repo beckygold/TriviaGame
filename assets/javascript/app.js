@@ -6,6 +6,8 @@ $actionDisplay = $("#action-display");
 $scoreDisplay = $("#score-display");
 $startDisplay = $("#start-display");
 $gameDisplay = $("#game-display");
+$finalScoreDisplay = $("#final-score-display");
+$playerScore = $("#player-score");
 $submitBtn = $("#submit-button");
 $startBtn = $("#start-button");
 
@@ -91,6 +93,7 @@ function emptyChoices(){
 }
 
 function shuffleArray(array) {
+    // Using the Fisher-Yates shuffle to randomize an array
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -144,5 +147,8 @@ $submitBtn.click(function () {
     // If the player hits submit on the last question,
     if (questionIndex === 9) {
         // send them to the end of the quiz
+        $gameDisplay.addClass("hideDiv");
+        $finalScoreDisplay.removeClass("hideDiv");
+        $playerScore.text(score);
     }
 });
