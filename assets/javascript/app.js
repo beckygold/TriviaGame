@@ -3,6 +3,7 @@ $timerDisplay = $("#timer-display");
 $questionDisplay = $("#question-display");
 $answersDisplay = $("#answers-display");
 $actionDisplay = $("#action-display");
+$scoreDisplay = $("#score-display");
 $submitBtn = $("#submit-button");
 
 // Global variables
@@ -100,6 +101,11 @@ function reanimateAction() {
     $actionDisplay.addClass("stretchAnimate");
 }
 
+function scorePoint() {
+    score++
+    $scoreDisplay.text("Score: " + score);
+}
+
 function startGame() {
     $actionDisplay.addClass("stretchAnimate");
     loadQuestion();
@@ -115,7 +121,7 @@ $submitBtn.click(function () {
     console.log(playerChoice);
     // If the player
     if (playerChoice === answer) {
-        score++
+        scorePoint();
         questionIndex++
         $actionDisplay.text("Correct!");
         reanimateAction();
@@ -124,5 +130,6 @@ $submitBtn.click(function () {
         questionIndex++
         $actionDisplay.text("Oops! Wrong answer.");
         reanimateAction();
+        loadQuestion();
     }
 });
