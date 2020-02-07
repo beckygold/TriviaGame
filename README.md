@@ -23,6 +23,8 @@ Navigate to the game by clicking [here](https://rebeccagoldstein.github.io/Trivi
 
 Click on the correct answer for each question.
 
+![Example GIF](./assets/images/example.gif/)
+
 ## Future Developments
 * Polish front-end.
 * Add high score board.
